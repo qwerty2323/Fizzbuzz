@@ -1,3 +1,5 @@
+require 'benchmark'
+
 def is_divisible_by_three?(number)
   is_devisible_by?(number, 3)
 end
@@ -20,3 +22,7 @@ def fizzbuzz(number)
   return "Buzz" if is_divisible_by_five?(number)
   number
 end
+
+puts Benchmark.measure { 
+  (1..10000000).each {|number| fizzbuzz(number) }
+ }
